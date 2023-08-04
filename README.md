@@ -33,5 +33,56 @@ Ansible Configuration Management – Automating Project 7 to 10
   
 ![11_2](https://github.com/EzeOnoky/Project-Base-Learning-11/assets/122687798/d60dc43a-ce48-4360-a63f-c074f49747f7)
 
+## STEP 1      ***INSTALL AND CONFIGURE ANSIBLE ON OUR ACTIVE JENKIN SERVER***
+
+Already Jenkins is running on our Ubuntu 20.04 server, now we will be Installing Ansible on Jenkins Server, and then on the EC2 instance, we rename it to Jenkins-Ansible. We will also use this server to run our playbooks.
+
+#### 11_3 pix of your running instances
+
+### 1A.In your GitHub account create a new repository and name it `ansible-config-mgt`
+
+#### 11_4 pix of the new repo
+
+### 1B. We install ansible on our jenkins server and rename it to Jenkins-Ansible
+
+```
+sudo apt update
+sudo apt install ansible
+ansible --version
+```
+#### 11_5 short pix showing the ansible version
+
+### 1C. Configure Jenkins
+
+Make reference to your project 9,  follow the step to  configure Jenkins
+
+- Configure Jenkins build job to save your repository content every time there is an edit.
+
+- Create a new Freestyle project ansible in Jenkins and point it to your ‘ansible-config-mgt’ repository.
+
+- Configure the "ansible-config-mgt" to connect to the jenkins through webhook to trigger build automatically.
+
+- Configure a Post-build job to save and archive all artifacts i.e (**).
+
+- Test our setup by making some change in README.MD file
+
+Note: Trigger Jenkins project execution only for /main (master) branch.
+
+#### 11_6 pix showing your Jenkins config  
+
+Now your setup will look like this:
+
+![11_7](https://github.com/EzeOnoky/Project-Base-Learning-11/assets/122687798/5dcf7dbd-9c66-4ec5-99fc-36866d62b6b9)
+
+N/B: Every time the jenkins-ansible server stop/start, we have to reconfigure GitHub webhook to the new IP address. In order to avoid this, we allocate an Elastic IP to the Jenkins-Ansible server. Elastic IP is free only when it is being allocated to an EC2 Instance so we release Elastic IP once the instance is terminated.
+
+
+## STEP 2      ***PREPARE THE DEVELOPMENT ENVIRONMENT USING VS CODE***
+
+- First part of ‘DevOps’ is ‘Dev’, which means you will require to write some codes and you shall have proper tools that will make your coding and debugging comfortable – you need an Integrated development environment (IDE) or Source-code Editor. VS Code is the preference tool to use here.
+
+- After you have successfully installed VSC, [configure it to connect to your newly created GitHub repository](https://www.youtube.com/watch?v=mR9jhYD3bnI)
+
+
 
   
