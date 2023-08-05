@@ -332,7 +332,7 @@ When this is done, our jenkins builds the artifacts automatically.
 
 #### 11_25 pix of this
 
-## STEP 7      ** RUN FIRST ANSIBLE TEST**
+## STEP 7      **RUN FIRST ANSIBLE TEST**
 
 Now, it is time to execute ansible-playbook command and verify if your playbook actually works
 
