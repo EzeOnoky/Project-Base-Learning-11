@@ -21,11 +21,11 @@ Ansible Configuration Management – Automating Project 7 to 10
 
 1. - Two RHEL8 Web Servers
 
-2. - One MySQL DB Server (based on Ubuntu 20.04 LTS)
+2. - One RHEL8 DB Server
 
 3. - One RHEL8 NFS server
 
-3. - One Nginx LB server(based on Ubuntu 20.04 LTS)
+3. - One LB server(based on Ubuntu 20.04 LTS)
 
 4. - One **Jenkins/Ansible Server** server(based on Ubuntu 20.04 LTS)
 
@@ -35,7 +35,9 @@ Ansible Configuration Management – Automating Project 7 to 10
 
 ## STEP 1      **INSTALL AND CONFIGURE ANSIBLE ON OUR ACTIVE JENKIN SERVER**
 
-Already Jenkins is running on our Ubuntu 20.04 server, now we will be Installing Ansible on Jenkins Server, and then on the EC2 instance, we rename it to Jenkins-Ansible. We will also use this server to run our playbooks.
+Note, prior to above step 1, your servers running on RHEL8, 4 of them - (the 2 web server, DB, NFS), your Ubuntu 20.04 LB & Ubuntu 20.04 Jenkins would have been configured - refer to project 7, 8, 9 respectively for some guidance on this setup. 
+
+Already Jenkins is running on our Ubuntu 20.04 server, now we will be Installing Ansible on Jenkins Server, and then on the EC2 instance, we rename it to Jenkins-Ansible. We will also use this server to run our Ansible Playbooks.
 
 #### 11_3 pix of your running instances
 
