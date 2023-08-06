@@ -320,8 +320,6 @@ On your VS Code, click on the common.yml file and paste below...
 Above explained...
 
 
----  *You satrt all YMAL file with ---*
-
 name: update web, nfs and db servers  *description of what you want to do*
 
 hosts: webservers, nfs-server, db01   *servers are grouped based on their server types - tis is RHEL group*
@@ -335,6 +333,8 @@ name: ensure wireshark is at the latest version
 yum:
 name: wireshark
 state: latest
+
+---  *this is seen at the begining, You satrt all YMAL file with this ---*
 
 
 Above playbook is divided into two parts, each of them is intended to perform the same task: install wireshark utility (or make sure it is updated to the latest version) on your RHEL 8 and Ubuntu servers. It uses root user to perform this task and respective package manager: yum for RHEL 8 and apt for Ubuntu.The above playbook will install the latest wireshark utility to the various servers.
