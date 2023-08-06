@@ -286,6 +286,8 @@ In `common.yml` playbook, we will write configuration for repeatable, re-usable,
 
 Update your `playbooks/common.yml` file with following code:
 
+On your VS Code, click on the common.yml file and paste below...
+
 ```
 ---
 - name: update web, nfs and db servers
@@ -314,6 +316,34 @@ Update your `playbooks/common.yml` file with following code:
         name: wireshark
         state: latest
 ```
+
+Above explained...
+---  *You satrt all YMAL file with ---*
+- name: update web, nfs and db servers  *description of what you want to do*
+  hosts: webservers, nfs-server, db01   *servers are grouped based on their server types - tis is RHEL group*
+  remote_user: ec2-user  *this is about how u want to access the servers, ec2-user is used here*
+  become: yes
+  become_user: root
+  tasks:
+    - name: ensure wireshark is at the latest version
+      yum:
+        name: wireshark
+        state: latest
+
+- name: update LB server
+  hosts: load-balancer
+  remote_user: ubuntu
+  become: yes
+  become_user: root
+  tasks:
+    - name: Update apt repo
+      apt: 
+        update_cache: yes
+
+    - name: ensure wireshark is at the latest version
+      apt:
+        name: wireshark
+        state: latest
 
 Above playbook is divided into two parts, each of them is intended to perform the same task: install wireshark utility (or make sure it is updated to the latest version) on your RHEL 8 and Ubuntu servers. It uses root user to perform this task and respective package manager: yum for RHEL 8 and apt for Ubuntu.The above playbook will install the latest wireshark utility to the various servers.
 
