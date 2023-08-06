@@ -131,7 +131,10 @@ and then
 
 `git status`
 
-Notice the prompt will change to the new branch we just created. If you also check the top left corner of your VS Code, you will see the newly created branch
+Notice the prompt will change to the new branch we just created i.e **prj-11**. If you also check the bottom left corner of your VS Code, you will see the newly created branch. When you switch to the **Main** branch, the prompt will change.
+
+![11_10A](https://github.com/EzeOnoky/Project-Base-Learning-11/assets/122687798/d5f2c159-d105-4bf0-b7ff-2efbf36ecd53)
+
 
 #### 11_11 pix showing successful cmd execution
 
@@ -317,8 +320,15 @@ On your VS Code, click on the common.yml file and paste below...
         state: latest
 ```
 
-Above explained, see below bold faced...
+Above playbook is divided into two parts, each of them is intended to perform the same task: install wireshark utility (or make sure it is updated to the latest version) on your RHEL 8 and Ubuntu servers. It uses root user to perform this task and respective package manager: yum for RHEL 8 and apt for Ubuntu.The above playbook will install the latest wireshark utility to the various servers.
 
+Feel free to update this playbook with following tasks:
+
+- Create a directory and a file inside it
+- Change timezone on all servers
+- Run some shell script
+
+Further explaination of each line in our playbook task, see below bold faced...
 
 **name: update web, nfs and db servers**  -   *description of what you want to do*
 
@@ -334,22 +344,14 @@ Above explained, see below bold faced...
 
 **name: ensure wireshark is at the latest version**
 
-**yum:**
+**yum:**  - *package manager for RedHart is yum, for Ubuntu u would see apt*
 
-**name: wireshark**
+**name: wireshark** - *name of the application to be installed*
 
-**state: latest**
+**state: latest**  - *you are telling wireshark to install the latest version*
 
 **---**  -  *this is seen at the begining, You satrt all YMAL file with this ---*
 
-
-Above playbook is divided into two parts, each of them is intended to perform the same task: install wireshark utility (or make sure it is updated to the latest version) on your RHEL 8 and Ubuntu servers. It uses root user to perform this task and respective package manager: yum for RHEL 8 and apt for Ubuntu.The above playbook will install the latest wireshark utility to the various servers.
-
-Feel free to update this playbook with following tasks:
-
-- Create a directory and a file inside it
-- Change timezone on all servers
-- Run some shell script
 
 For a better understanding of Ansible playbooks – [watch this video from RedHat](https://www.youtube.com/watch?v=ZAdJ7CdN7DY) and read this [article](https://www.redhat.com/en/topics/automation/what-is-an-ansible-playbook). 
 
