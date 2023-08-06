@@ -320,19 +320,16 @@ On your VS Code, click on the common.yml file and paste below...
 Above explained...
 
 
-name: update web, nfs and db servers  *description of what you want to do*
-
-hosts: webservers, nfs-server, db01   *servers are grouped based on their server types - tis is RHEL group*
-
-remote_user: ec2-user  *this is about how u want to access the servers, ec2-user is used here*
-
-become: yes
-become_user: root *run the installation as a root user*
-tasks:
-name: ensure wireshark is at the latest version
-yum:
-name: wireshark
-state: latest
+**name: update web, nfs and db servers**  -   *description of what you want to do*
+**hosts: webservers, nfs-server, db01**  - *servers are grouped based on their server types - tis is RHEL group*
+**remote_user: ec2-user**  - *this is about how you want to access the servers, ec2-user is used here*
+**become: yes**
+**become_user: root** -  *run the installation as a root user*
+**tasks:**
+**name: ensure wireshark is at the latest version**
+**yum:**
+**name: wireshark**
+**state: latest**
 
 ---  *this is seen at the begining, You satrt all YMAL file with this ---*
 
