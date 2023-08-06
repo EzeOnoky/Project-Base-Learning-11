@@ -317,7 +317,7 @@ On your VS Code, click on the common.yml file and paste below...
         state: latest
 ```
 
-Above explained...
+Above explained, see below bold faced...
 
 
 **name: update web, nfs and db servers**  -   *description of what you want to do*
@@ -326,7 +326,7 @@ Above explained...
 
 **remote_user: ec2-user**  - *this is about how you want to access the servers, ec2-user is used here*
 
-**become: yes**
+**become: yes**  -  *means you are telling this user to become the sudo user*
 
 **become_user: root** -  *run the installation as a root user*
 
