@@ -367,16 +367,33 @@ Ideally, We will be working within a team of other DevOps engineers and develope
 Now we need to raise a **pull request** for the feature/pj-11 branch we created and the branch peer reviewed and merged to the **main** branch.
 
 ### 6A Commit your code into GitHub
+video 1:00 - 
+
+Firstly, list all the files you are yet to committed/sent over to GIT using below...
+`git status`
+
+![11_20A](https://github.com/EzeOnoky/Project-Base-Learning-11/assets/122687798/41996fb2-c78c-45a2-9ca1-4a8fc0307f67)
+
+Now proceed to commit the changes...
 
 ```
-git status
 git add <selected files>
 git commit -m "commit message"
 ```
-#### 11_21 pix showing your execued CMD above
+![11_20B](https://github.com/EzeOnoky/Project-Base-Learning-11/assets/122687798/7c764119-6ed9-4cee-8ffe-d57af5c66dec)
+
+So after committing changes for ALL file (./), now we proceed to commit changes made on the playbook directory( ../playbooks/
+
+![11_20c](https://github.com/EzeOnoky/Project-Base-Learning-11/assets/122687798/73971db1-c115-4911-b1b3-2f9b992a10a8)
+
+Now We push the new brance to the remote branch
+
+![11_20d](https://github.com/EzeOnoky/Project-Base-Learning-11/assets/122687798/7a382bbf-2c1d-4786-a0d2-0c51003a56e5)
+
 
 ### 6B Create a Pull request (PR)
 
+Now return to GIT Hub, follow below steps to pull the request
 
 #### 11_22 pix showing how to create a pull request
 
@@ -385,6 +402,8 @@ The pull request will be reviewed and if it is approved, it will be merged to th
 ### 6B Merging the code to the main branch
 
 #### 11_23 pix showing how to merge the code to the main branch
+
+### 6C Exit from the Feature Branch to the main branch
 
 After the merge is done, the inventory and playbooks directories are updated in the main branch.
 
@@ -396,15 +415,16 @@ then download the updated copy
 
 `git pull`
 
-#### 11_24 pix showing how successful execution of above CMD
+As seen below, the pull commmand updates what we have in the project branch(Feauture branch prj-11) into our master(main) branch 
 
-When this is done, our jenkins builds the artifacts automatically.
+![11_20e](https://github.com/EzeOnoky/Project-Base-Learning-11/assets/122687798/fd5f97f0-ae65-4f53-8b27-29dddc745e90)
 
-#### 11_25 pix of the successful new build
 
-...then saves the files in the /var/lib/jenkins/jobs/ansible/builds/<build_number>/archive/ directory on the jenkins-ansible server.
+When this is done, our jenkins builds the artifacts automatically...see below
 
-#### 11_25 pix of this
+#### 11_23 pix showing your current jenkins build
+
+...then saves the files in the /var/lib/jenkins/jobs/ansible/builds/<build_number>/archive/ directory on the jenkins-ansible server. This can also be confirmed on the Jenkins login
 
 ## STEP 7      **RUN FIRST ANSIBLE TEST**
 
