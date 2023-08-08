@@ -179,6 +179,7 @@ For a guide on how to setup SSH agent and connect VS Code to your Jenkins-Ansibl
 [Click here](https://www.youtube.com/watch?v=lKXMyln_5q4) 
 [Click here](https://(www.youtube.com/watch?v=OplGrY74qog)
 
+[How to connect to Bastion Host on Visual Studio code via SSH Agent](https://www.youtube.com/watch?v=RRRQLgAfcJw&list=PLtPuNR8I4TvlBxy8IUXUDnmtlKawRsWH_&t=1445s)
 
 Open the link [openSSH-documentation](https://learn.microsoft.com/en-us/windows-server/administration/openssh/openssh_install_firstuse?tabs=powershell) and follow the setup procedure.
 
