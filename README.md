@@ -41,11 +41,12 @@ Note, prior to above step 1, your servers running on RHEL8, 4 of them - (the 2 w
 
 Already Jenkins is running on our Ubuntu 20.04 server, now we will be Installing Ansible on Jenkins Server, and then on the EC2 instance, we rename it to Jenkins-Ansible. We will also use this server to run our Ansible Playbooks.
 
-#### 11_3 pix of your running instances
+![11_3](https://github.com/EzeOnoky/Project-Base-Learning-11/assets/122687798/6d190aad-dc65-42d6-a7c0-4dcfe0479c2d)
+
 
 ### 1A.In your GitHub account create a new repository and name it `ansible-config-mgt`
 
-#### 11_4 pix of the new repo
+![11_4](https://github.com/EzeOnoky/Project-Base-Learning-11/assets/122687798/d4ac5bcf-f42e-43f5-9d2b-860f733ffce5)
 
 ### 1B. We install ansible on our jenkins server and rename it to Jenkins-Ansible
 
@@ -54,7 +55,8 @@ sudo apt update
 sudo apt install ansible
 ansible --version
 ```
-#### 11_5 short pix showing the ansible version
+![11_5](https://github.com/EzeOnoky/Project-Base-Learning-11/assets/122687798/08a5b167-3eea-407d-b93f-409ebb2ae612)
+
 
 ### 1C. Configure Jenkins
 
@@ -68,16 +70,18 @@ Make reference to your project 9,  follow the step to  configure Jenkins
 
 - Configure a Post-build job to save and archive all artifacts i.e (**).
 
-- Test our setup by making some change in README.MD file
+- Test our setup by making some change in README.MD file of your ‘ansible-config-mgt’ repository.
 
-Note: Trigger Jenkins project execution only for /main (master) branch.
+**Note** : Trigger Jenkins project execution only for /main branch.
 
-#### 11_6 pix showing your Jenkins config  
+![11_6](https://github.com/EzeOnoky/Project-Base-Learning-11/assets/122687798/b335fc4c-e514-4fcf-bb4c-658d1e873beb)
 
 Now your setup will look like this:
 
 ![11_7](https://github.com/EzeOnoky/Project-Base-Learning-11/assets/122687798/5dcf7dbd-9c66-4ec5-99fc-36866d62b6b9)
-***Diagram Explained*** - Your Webhook auto triggers changes on your Jenkins/Ansible server, the change comes to the NFS server, the NFS now supplies Web1 & Web2.
+
+
+**Diagram Explained** - Your Webhook auto triggers changes on your Jenkins/Ansible server, the change comes to the NFS server, the NFS now supplies Web1 & Web2.
 
 N/B: Every time the jenkins-ansible server stop/start, we have to reconfigure GitHub webhook to the new IP address. In order to avoid this, we allocate an Elastic IP to the Jenkins-Ansible server. Elastic IP is free only when it is being allocated to an EC2 Instance so we release Elastic IP once the instance is terminated.
 
@@ -99,24 +103,26 @@ Note : Remote Development on the VS Code - Helps open SSH on remote servers
 
 - After you have successfully installed VSC, [configure it to connect to your newly created GitHub repository](https://www.youtube.com/watch?v=mR9jhYD3bnI)
 
+**Steps to Connect VS CODE to GIT HUB**
+
+![11_8a](https://github.com/EzeOnoky/Project-Base-Learning-11/assets/122687798/60335e7d-3af9-42c9-b069-768e03582474)
+
+
 - Clone the ansible-config-mgt repo to the Jenkins-Ansible instance
 
 Below is to be executed from your VS Code Editor - Click on Terminal to begin execution
 
 `git clone <ansible-config-mgt repo link>`
 
-#### 11_9 pix of this cmd executed
+cd into ansible-config-mgt
 
-- cd into ansible-config-mgt
-
-#### 11_10 pix showing your Jenkins config  
-
+![11_9](https://github.com/EzeOnoky/Project-Base-Learning-11/assets/122687798/e2d7c7c8-da1c-423b-a6ba-d0f1ba1c1e77)
 
 ## STEP 3      **BEGIN ANSIBLE DEVELOPMENT**
 
 ### 3A New Branch Creation in the ansible-config-mgt GitHub repository
 
-In the ansible-config-mgt GitHub repository, We create a new branch that will be used for development of a new feature and name it feature/PJ-11
+In the ansible-config-mgt GitHub repository, We create a new branch that will be used for development of a new feature and name it feature/PRJ-11
 
 To create this branch, we run the commands
 
@@ -125,13 +131,15 @@ To create this branch, we run the commands
 
 Then proceed to create a Branch...
 
-`git checkout -b PJ-11`
+`git checkout -b PRJ-11`
 
 and then
 
 `git status`
 
-Notice the prompt will change to the new branch we just created i.e **prj-11**. If you also check the bottom left corner of your VS Code, you will see the newly created branch. When you switch to the **Main** branch, the prompt will change.
+![11_9a](https://github.com/EzeOnoky/Project-Base-Learning-11/assets/122687798/032d0344-acf6-4dfa-8dcb-4c9bff29e110)
+
+Notice the prompt will change to the new branch we just created i.e **PRJ-11**. If you also check the bottom left corner of your VS Code, you will see the newly created branch. When you switch to the **Main** branch, the prompt will change.
 
 ![11_10A](https://github.com/EzeOnoky/Project-Base-Learning-11/assets/122687798/d5f2c159-d105-4bf0-b7ff-2efbf36ecd53)
 
@@ -149,7 +157,7 @@ In the new branch we will be creating some directories that we will be working w
 - Within the playbooks folder, create your first playbook, and name it common.yml
 
 ```
-cd inventory
+cd playbook
 touch common.yml
 ```
 
