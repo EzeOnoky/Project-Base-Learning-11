@@ -180,7 +180,7 @@ For a guide on how to setup SSH agent and connect VS Code to your Jenkins-Ansibl
 [Click here](https://(www.youtube.com/watch?v=OplGrY74qog)
 
 [How to connect to Bastion Host on Visual Studio code via SSH Agent](https://www.youtube.com/watch?v=RRRQLgAfcJw&list=PLtPuNR8I4TvlBxy8IUXUDnmtlKawRsWH_&t=1445s)
-See at the both **EXTRA** for documentation on this...
+See at the bottom - **EXTRA** for documentation on this...
 
 Open the link [openSSH-documentation](https://learn.microsoft.com/en-us/windows-server/administration/openssh/openssh_install_firstuse?tabs=powershell) and follow the setup procedure.
 
@@ -267,17 +267,17 @@ DBS ansible_host=<DB-Private-IP> ansible_ssh_user=ec2-user ansible_ssh_private_k
 LB ansible_host=<LB-Private-IP> ansible_ssh_user=ubuntu ansible_ssh_private_key_file=dybran-ec2.pem
 
 [NFS]
-<NFS-Private-IP> ansible_ssh_user=ec2-user
+<NFS-Private-IP> ansible_ssh_user='ec2-user'
 
 [WEB]
-<WEB1-Private-IP> ansible_ssh_user=ec2-user
-<WEB2-Private-IP> ansible_ssh_user=ec2-user
+<WEB1-Private-IP> ansible_ssh_user='ec2-user'
+<WEB2-Private-IP> ansible_ssh_user='ec2-user'
 
 [DB]
-<DB-Private-IP> ansible_ssh_user=ec2-user
+<DB-Private-IP> ansible_ssh_user='ec2-user'
 
 [LB]
-<LB-Private-IP> ansible_ssh_user=ubuntu
+<LB-Private-IP> ansible_ssh_user='ubuntu'
 ```
 The above a simply telling ansible what users(Ubuntu or ec2-user) is matched to each IP
 
