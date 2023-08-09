@@ -180,6 +180,7 @@ For a guide on how to setup SSH agent and connect VS Code to your Jenkins-Ansibl
 [Click here](https://(www.youtube.com/watch?v=OplGrY74qog)
 
 [How to connect to Bastion Host on Visual Studio code via SSH Agent](https://www.youtube.com/watch?v=RRRQLgAfcJw&list=PLtPuNR8I4TvlBxy8IUXUDnmtlKawRsWH_&t=1445s)
+See at the both **EXTRA** for documentation on this...
 
 Open the link [openSSH-documentation](https://learn.microsoft.com/en-us/windows-server/administration/openssh/openssh_install_firstuse?tabs=powershell) and follow the setup procedure.
 
@@ -472,5 +473,52 @@ or
 
 # CONGRATULATIONS EZE ! You have just automated routine tasks using Ansible Configuration Management Tool
 
+
+# EXTRAS
+
+### How to connect to Bastion Host on Visual Studio code via SSH Agent
+
+SSH Agent - a concept where you have the private key of an Ansible server, running in another active instance, from the SSH agent, you can connect directly to the active instance.
+
+`eval 'ssh-agent'`  .....this starts the SSH agent
+
+`ssh-add -k <pem key name>`  ......this adds the pem key, ensure this is executed from the folder where the pem key is located
+
+`ssh-add -l` this will show you the active keys in your Key chain
+
+When you connect via SSH agent, you dont have to copy the connection url and launch it on your terminal. you run below CMD.
+
+`ssh -A ec2-user@3.68.101.75`   .... 3.68.101.75 is the public IP of your Master  Ansible server
+
+`ssh-add -l`   .... Once connected on Master Ansible server, run to this command to add the pem key chain to your Ansible Master
+
+`ssh ec2-user@172.31.166.45`  ...While on the Master Ansible server, your can now SSH into the slave ansible server using its private IP, or anyother server u want to
+
+SO BEFORE YOU RUN ANSIBLE PLAYBOOK, ALWAYS ENSURE YOUR ANSIBLE MASTER CAN CONNECT TO THE OTHER SERVERs(Ansible slave) VIA SSH AGENT
+
+exit   ....this exits u from the slave Ansible into the master ansible
+
+Ansible is installed on MASTER ANSIBLE, after Ansible is installed here, you have to update the INVENTORY
+
+INVENTORY - This is where Ansible goes to excute commands based on the expected task to be executed. you have to update private IP of your Ansible slaves here
+
+So After the inventory has been updated, CD into Ansible directory, & attempt to run below Ansible command, if u get a sucess message, this means your Bastion host(Ansible Master) can successful execute cmd on the slave server
+
+`ansible -i inventory -m ping test`
+
+**SO WHY VS CODE...**
+Notice when u connect to an instance and need to use a test Editor, u have to exit the terminal, make changes on your text editor, save the changes and return to your terminal prompt.
+With VS Code, you dont need to be doing this switch. From VS Code , u can access both terminal and your text editor all at once
+
+B4 u connect VS Code to your Master Ansible, u must make sure SSH agent is running on the Master Ansible server
+
+1st ensure the SSH agent pem key has been added... `run ssh-add -l`
+If you dont see the pem key on the pem key chain....use below to add it.
+
+`eval 'ssh-agent'`  .....this starts the SSH agent
+
+`ssh-add -k <pem key name>` ......this adds the pem key, ensure this is executed from the folder where the pem key is located
+
+`ssh-add -l` .... this will show you the active keys in your Key chain
 
 
