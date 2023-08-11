@@ -90,7 +90,7 @@ N/B: Every time the jenkins-ansible server stop/start, we have to reconfigure Gi
 
 VISUAL STUDIO CODE is a text Editor which limits your back and forth between your SSH Client window, GIT Hub repository Window etc. It bring all to one interface, so with CMD line you can interface with ALL.
 
-### 2A. INSTALL VS CODE
+### 2A. INSTALL VS CODE and LINK TO YOUR NEW GITHUB `ansible-config-mgt` REPO
 
 First part of ‘DevOps’ is ‘Dev’, which means you will require to write some codes and you shall have proper tools that will make your coding and debugging comfortable – you need an Integrated development environment (IDE) or Source-code Editor. VS Code is the preference tool to use here, for this project, ensure below highlighted are installed on your VS code.
 
@@ -103,18 +103,30 @@ Note : Remote Development on the VS Code - Helps open SSH on remote servers
 
 - After you have successfully installed VSC, [configure it to connect to your newly created GitHub repository](https://www.youtube.com/watch?v=mR9jhYD3bnI)
 
-**Steps to Connect VS CODE to GIT HUB**
+**Steps to Connect VS CODE to GIT HUB REPO**
 
-![11_8a](https://github.com/EzeOnoky/Project-Base-Learning-11/assets/122687798/60335e7d-3af9-42c9-b069-768e03582474)
+Using GIT Bash terminal, 
+
+```
+git clone <ansible-config-mgt repo link>
+cd into ansible-config-mgt
+git pull
+gut status
+```
+![11_8a](https://github.com/EzeOnoky/Project-Base-Learning-11/assets/122687798/40e9f503-944a-4a1c-beae-0492dbc45038)
+
+Upon executing above, check your laptop to confirm successful cloning. The `ansible-config-mgt` folder will be required when linking VS Code to your GITHUB ansible-config-mgt repo
+
+![11_8aa](https://github.com/EzeOnoky/Project-Base-Learning-11/assets/122687798/d77ceb17-40a2-42ab-88c4-20d9f8fcd276)
 
 
-- Clone the ansible-config-mgt repo to the Jenkins-Ansible instance
+- Clone the ansible-config-mgt repo to the Jenkins-Ansible instance and begin the ansible development
 
 Below is to be executed from your VS Code Editor - Click on Terminal to begin execution
 
-`git clone <ansible-config-mgt repo link>`
 
-cd into ansible-config-mgt
+
+
 
 ![11_9](https://github.com/EzeOnoky/Project-Base-Learning-11/assets/122687798/e2d7c7c8-da1c-423b-a6ba-d0f1ba1c1e77)
 
