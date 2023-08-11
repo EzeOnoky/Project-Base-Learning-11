@@ -105,30 +105,26 @@ Note : Remote Development on the VS Code - Helps open SSH on remote servers
 
 **Steps to Connect VS CODE to GIT HUB REPO**
 
-Using GIT Bash terminal, 
+Using VS Code terminal, run below CMD
 
 ```
 git clone <ansible-config-mgt repo link>
-cd into ansible-config-mgt
-git pull
-gut status
 ```
-![11_8a](https://github.com/EzeOnoky/Project-Base-Learning-11/assets/122687798/40e9f503-944a-4a1c-beae-0492dbc45038)
 
-Upon executing above, check your laptop to confirm successful cloning. The `ansible-config-mgt` folder will be required when linking VS Code to your GITHUB ansible-config-mgt repo
+After the cloning, check below path for the clone GITHUB repo
 
 ![11_8aa](https://github.com/EzeOnoky/Project-Base-Learning-11/assets/122687798/d77ceb17-40a2-42ab-88c4-20d9f8fcd276)
 
-
-- Clone the ansible-config-mgt repo to the Jenkins-Ansible instance and begin the ansible development
-
-Below is to be executed from your VS Code Editor - Click on Terminal to begin execution
-
-
-
-
-
+Go to VS Code explorer, load the folder of the new cloned ansible-config-mgt from the path above. 
+```
+cd ansible-config-mgt
+git pull
+git status
+```
 ![11_9](https://github.com/EzeOnoky/Project-Base-Learning-11/assets/122687798/e2d7c7c8-da1c-423b-a6ba-d0f1ba1c1e77)
+
+Spin up ther VS code terminal and CD into the folder and begin your configurations
+
 
 ## STEP 3      **BEGIN ANSIBLE DEVELOPMENT**
 
