@@ -209,7 +209,7 @@ Now, ssh into your Jenkins-Ansible server using ssh-agent
 
 `ssh -A ubuntu@<jenkins-ansible-public-IP-address>`
 
-#### 11_14 pix showing successful cmd execution
+![11_11](https://github.com/EzeOnoky/Project-Base-Learning-11/assets/122687798/ef6e533e-1625-42f2-835d-3c94051d49f5)
 
 So with this done, our Ansible server will be able to access the other instances(Web server, NFS, DB, LB) using this pem key. on our SSH agent
 
