@@ -105,80 +105,70 @@ Note : Remote Development on the VS Code - Helps open SSH on remote servers
 
 **Steps to Connect VS CODE to GIT HUB REPO**
 
-Using VS Code terminal, run below CMD
+![11_8b](https://github.com/EzeOnoky/Project-Base-Learning-11/assets/122687798/880f8b14-f27f-40ba-8306-ac006035e5ff)
+
+Or you can use CMD line to also achieve above
+
+...Spin up the VS code terminal and CD into the folder and begin your configurations
 
 ```
 git clone <ansible-config-mgt repo link>
-```
-
-After the cloning, check below path for the clone GITHUB repo
-
-![11_8aa](https://github.com/EzeOnoky/Project-Base-Learning-11/assets/122687798/d77ceb17-40a2-42ab-88c4-20d9f8fcd276)
-
-Go to VS Code explorer, load the folder of the new cloned ansible-config-mgt from the path above. 
-```
 cd ansible-config-mgt
 git pull
 git status
 ```
+
 ![11_9](https://github.com/EzeOnoky/Project-Base-Learning-11/assets/122687798/e2d7c7c8-da1c-423b-a6ba-d0f1ba1c1e77)
 
-Spin up ther VS code terminal and CD into the folder and begin your configurations
+
+After the cloning, check below path for the clone GITHUB repo
+
+![11_8aa](https://github.com/EzeOnoky/Project-Base-Learning-11/assets/122687798/d77ceb17-40a2-42ab-88c4-20d9f8fcd276)
 
 
 ## STEP 3      **BEGIN ANSIBLE DEVELOPMENT**
 
 ### 3A New Branch Creation in the ansible-config-mgt GitHub repository
 
-In the ansible-config-mgt GitHub repository, We create a new branch that will be used for development of a new feature and name it feature/PRJ-11
+In the ansible-config-mgt GitHub repository, We create a new branch that will be used for development of a new feature and name it prj-11
 
 To create this branch, we run the commands
 
-1st confirm the branch you are currently on ....
-`git status`
+1st confirm the branch you are currently on ....Then proceed to create a Branch...
 
-Then proceed to create a Branch...
+```
+git status
+git checkout -b PRJ-11`
+git status
+```
 
-`git checkout -b PRJ-11`
+![11_9a](https://github.com/EzeOnoky/Project-Base-Learning-11/assets/122687798/5ec099c5-749d-42ca-a14e-bcafa675029c)
 
-and then
+Notice the bottom left, the prompt has changed to the new branch we just created i.e **prj-11**. If you also check the bottom left corner of your VS Code, you will see the newly created branch. When you switch to the **Main** branch, the prompt will change. To switch between branches, click the name of your current branch in the bottom left and select your new branch from the list shown. 
 
-`git status`
-
-![11_9a](https://github.com/EzeOnoky/Project-Base-Learning-11/assets/122687798/032d0344-acf6-4dfa-8dcb-4c9bff29e110)
-
-Notice the prompt will change to the new branch we just created i.e **PRJ-11**. If you also check the bottom left corner of your VS Code, you will see the newly created branch. When you switch to the **Main** branch, the prompt will change.
-
-![11_10A](https://github.com/EzeOnoky/Project-Base-Learning-11/assets/122687798/d5f2c159-d105-4bf0-b7ff-2efbf36ecd53)
-
-
-#### 11_11 pix showing successful cmd execution
 
 ### 3B On your new Branch, Create a Playbooks Directory & Inventory Directory
 In the new branch we will be creating some directories that we will be working with. Create a directory and name it playbooks – it will be used to store all your playbook files. Also create another directory and name it inventory – it will be used to keep your hosts organised.
-
-#### 11_12 pix showing successful cmd execution
-
 
 ### 3C On Playbook Directory-Create your 1st Playbook & On Inventory Directory-Create An inventory file (.yml) for each environment
 
 - Within the playbooks folder, create your first playbook, and name it common.yml
 
 ```
-cd playbook
-touch common.yml
+cd .\playbooks\
+echo common.yml
 ```
 
 - Within the inventory folder, create an inventory file (.yml) for each environment (Development, Staging Testing and Production) dev, staging, uat, and prod respectively.
 - 
 ```
-cd inventory
-touch dev.yml staging.yml uat.yml prod.yml
+cd .\inventory\
+echo dev.yml staging.yml uat.yml prod.yml
 ```
 
 **NOTE** Aside command line used above, there is option to use GUI(click click...) to create these files inside the folders in the new branche.
 
-#### 11_13 pix showing successful cmd execution
+![11_13](https://github.com/EzeOnoky/Project-Base-Learning-11/assets/122687798/19fefbb3-5641-416d-9b6d-6a7a80aa6424)
 
 
 ## STEP 4      **SET UP AN ANSIBLE INVENTORY**
