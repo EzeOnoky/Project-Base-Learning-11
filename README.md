@@ -215,13 +215,13 @@ So with this done, our Ansible server will be able to access the other instances
 
 Also note, that your Load Balancer user is `ubuntu` and user for RHEL-based servers is `ec2-user` So to access the Ubuntu or the RHEL server...just grap the private IP of the specific server you want to access and run below...
 
-`ssh ubuntu@<LB-Private-IP-address>`
+`ssh ubuntu@<LB Private IP>`
+ssh ubuntu@172.31.83.60
 
 `ssh ec2-user@<NFS-Private-IP-address>`
 
 `ssh ec2-user@<WEB Server-Private-IP-address>`
 
-# 1 check if needed
 
 To Connect the vscode to the server through ssh, click on the highlighted section in the bottom left corner
 
@@ -232,29 +232,30 @@ Search for "ssh", then select "open ssh configuration file" from the options. Se
 Insert the following
 
 ```
-host: Jenkins-ansible
-    hostname: <public-dns-of-jenkins-ansible-server> 
+host: <public IP of the Jenkin-ansible
+    hostname: <public-IP-of-jenkins-ansible-server>
+    ForwardAgent Yes
     user: ubuntu
-    IdentityFile C:\Users\USER\Downloads\dybran-ec2.pem
 ```
-![11_15](https://github.com/EzeOnoky/Project-Base-Learning-11/assets/122687798/921fd916-6574-4374-987e-0731d8e5f217)
+
+![11_16](https://github.com/EzeOnoky/Project-Base-Learning-11/assets/122687798/40f54db7-97c4-43f9-a160-e98f17bcfbfb)
+
 Click on the highlighted section in the bottom left corner again, and then select "connect to host". From the options, select the host you created in the ssh configuration file. This connects the jenkins-ansible server to vscode remotely through ssh
 
-# 1 end
+Now we try to connect remotely through ssh to other servers, LB for Ubuntu Server, WEB1 for RHEL.
 
-#### 11_16 pix showing successful connection to ssh on VSCODE
+`ssh ec2-user@<WEB1-Private-IP-address>`
+`ssh ubuntu@<LB-Private-IP-address>`
 
-Now we try to connect remotely through ssh to other servers, e.g Connect to web02 remotely
+![11_17](https://github.com/EzeOnoky/Project-Base-Learning-11/assets/122687798/a4186f02-7436-4036-ab8d-fbee1b0df73b)
 
-`ssh ec2-user@<web02-IP-address>`
-
-#### 11_17 pix showing successful connection to web server on VSCODE
 
 Update the /etc/hosts/ of the jenkins-ansible server with the webservers, database, nfs server and load balancer private IP address.
 
 `sudo vi /etc/hosts`
 
-#### 11_18 pix showing successful adding of the private IPs
+![11_18](https://github.com/EzeOnoky/Project-Base-Learning-11/assets/122687798/7c29c3f1-9290-4dd7-9b91-13bb374be45e)
+
 
 ### 4B Update the inventory/dev.yml file
 
@@ -287,7 +288,8 @@ LB ansible_host=<LB-Private-IP> ansible_ssh_user=ubuntu ansible_ssh_private_key_
 ```
 The above a simply telling ansible what users(Ubuntu or ec2-user) is matched to each IP
 
-#### 11_19 pix showing what was updated on inventory/dev.yml file
+![11_19](https://github.com/EzeOnoky/Project-Base-Learning-11/assets/122687798/3e57ed58-7f9e-481c-9457-84f2c7a3b2fa)
+
 
 ## STEP 5      **CREATE A COMMON PLAYBOOK**
 
@@ -328,6 +330,8 @@ On your VS Code, click on the common.yml file and paste below...
         state: latest
 ```
 
+![11_20](https://github.com/EzeOnoky/Project-Base-Learning-11/assets/122687798/cbb4c471-dcc8-4149-99ea-bad53094fdae)
+
 Above playbook is divided into two parts, each of them is intended to perform the same task: install wireshark utility (or make sure it is updated to the latest version) on your RHEL 8 and Ubuntu servers. It uses root user to perform this task and respective package manager: yum for RHEL 8 and apt for Ubuntu.The above playbook will install the latest wireshark utility to the various servers.
 
 Feel free to update this playbook with following tasks:
@@ -363,8 +367,6 @@ Further explaination of each line in our playbook task, see below bold faced...
 
 For a better understanding of Ansible playbooks – [watch this video from RedHat](https://www.youtube.com/watch?v=ZAdJ7CdN7DY) and read this [article](https://www.redhat.com/en/topics/automation/what-is-an-ansible-playbook). 
 
-#### 11_20 pix showing your ansible playbook config
-
 
 ## STEP 6      **UPDATE GIT WITH THE LATEST CODE**
 
@@ -372,7 +374,7 @@ Now all of the directories and files are in the local machine(our computer) and 
 
 Ideally, We will be working within a team of other DevOps engineers and developers where collaboration is a key component. GIT helps us collabrate in a DevOps team . In many organisations there is a development rule that do not allow to deploy any code before it has been reviewed by an extra pair of eyes – it is also called "Four eyes principle".
 
-Now we need to raise a **pull request** for the feature/pj-11 branch we created and the branch peer reviewed and merged to the **main** branch.
+Now we need to raise a **pull request** for the prj-11 branch we created and the branch peer reviewed and merged to the **main** branch.
 
 ### 6A Commit your code into GitHub
 video 1:00 - 
@@ -380,9 +382,10 @@ video 1:00 -
 Firstly, list all the files you are yet to committed/sent over to GIT using below...
 `git status`
 
-![11_20A](https://github.com/EzeOnoky/Project-Base-Learning-11/assets/122687798/41996fb2-c78c-45a2-9ca1-4a8fc0307f67)
+![11_20A](https://github.com/EzeOnoky/Project-Base-Learning-11/assets/122687798/3d75920f-5000-4012-a869-777cd21debe3)
 
-Now proceed to commit the changes...
+
+Now proceed to commit the changes...ensure you are on the prj-11 Branch
 
 ```
 git add <selected files>
@@ -432,7 +435,10 @@ When this is done, our jenkins builds the artifacts automatically...see below
 
 #### 11_23 pix showing your current jenkins build
 
-...then saves the files in the /var/lib/jenkins/jobs/ansible/builds/<build_number>/archive/ directory on the jenkins-ansible server. This can also be confirmed on the Jenkins login
+...then saves the files in the `/var/lib/jenkins/jobs/ANSIBLE/builds/3/archive` directory on the jenkins-ansible server. This can also be confirmed on the Jenkins login
+
+`ls /var/lib/jenkins/jobs/ANSIBLE/builds/3/archive`
+
 
 ## STEP 7      **RUN FIRST ANSIBLE TEST**
 
