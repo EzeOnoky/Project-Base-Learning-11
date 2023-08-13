@@ -484,7 +484,16 @@ or
 
 ### How to connect to Bastion Host on Visual Studio code via SSH Agent
 
-SSH Agent - a concept where you have the private key of an Ansible server, running in another active instance, from the SSH agent, you can connect directly to the active instance.
+**Ansible**
+Ansible uses the concept of SSH agent to be able to install softwares on the Ansible slave...via the Ansible Master. Ansible Master will SSH into the Ansible slave and run the required commands for installation of say...apache, nginx etc. For you to SSH into an instance, you need to have the public key and the private key setup. The SSH agents allows the pribate and public keys to be avaiable on the Ansible Master
+
+From your powershell terminal run `ssh -A ubuntu@3.83.111.27` to conect to your ansible master via SSH agent
+
+Now on your instance, if you run `ssh-add -l` ....you will see the private .pem key. You are able to see this key because of the SSH Agent. Now from this Ansible Master Instance, if you try to connect to any slave instance that has the same private .pem key pair, the connection will be successful...
+
+
+**SSH Agent**
+- a concept where you have the private key of an Ansible server, running in another active instance, from the SSH agent, you can connect directly to the active instance.
 
 `eval 'ssh-agent'`  .....this starts the SSH agent
 
