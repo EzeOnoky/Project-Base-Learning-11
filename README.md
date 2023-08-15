@@ -201,13 +201,20 @@ ssh-add <path-to-private-key>
 ```
 example - `ssh-add Desktop/DevOps/pj7.pem`
 
-Confirm the pem key has been added with the command below, you should see the name of your key
+To config SSH agent from you VS Code, 1st ensure you are on the path/directory where you .pem files are saved. For below steps to add your .pem key to the SSH agent. To Confirm the pem key has been added with the command below, you should see the name of your key
 
 `ssh-add -l`
 
-Now, ssh into your Jenkins-Ansible server using ssh-agent
+Once pem key is confirmed added, Now we try to connect remotely - 1st ssh into your Jenkins-Ansible server using ssh-agent, then through JENKIN-ANSIBLE, try connecting to other servers, LB for Ubuntu Server, WEB1 for RHEL. Ensure .pem files for these are already added on your SSH agent.
 
-`ssh -A ubuntu@<jenkins-ansible-public-IP-address>`
+```
+ssh -A ubuntu@<jenkins-ansible-public-IP-address>
+ssh ec2-user@<WEB1-Private-IP-address>
+ssh ubuntu@<LB-Private-IP-address>
+```
+
+![11_17](https://github.com/EzeOnoky/Project-Base-Learning-11/assets/122687798/a4186f02-7436-4036-ab8d-fbee1b0df73b)
+
 
 ![11_11](https://github.com/EzeOnoky/Project-Base-Learning-11/assets/122687798/ef6e533e-1625-42f2-835d-3c94051d49f5)
 
@@ -241,13 +248,6 @@ host: <public IP of the Jenkin-ansible
 ![11_16](https://github.com/EzeOnoky/Project-Base-Learning-11/assets/122687798/40f54db7-97c4-43f9-a160-e98f17bcfbfb)
 
 Click on the highlighted section in the bottom left corner again, and then select "connect to host". From the options, select the host you created in the ssh configuration file. This connects the jenkins-ansible server to vscode remotely through ssh
-
-Now we try to connect remotely through ssh to other servers, LB for Ubuntu Server, WEB1 for RHEL.
-
-`ssh ec2-user@<WEB1-Private-IP-address>`
-`ssh ubuntu@<LB-Private-IP-address>`
-
-![11_17](https://github.com/EzeOnoky/Project-Base-Learning-11/assets/122687798/a4186f02-7436-4036-ab8d-fbee1b0df73b)
 
 
 Update the /etc/hosts/ of the jenkins-ansible server with the webservers, database, nfs server and load balancer private IP address.
