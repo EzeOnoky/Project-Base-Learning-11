@@ -214,7 +214,9 @@ ssh ubuntu@<LB-Private-IP-address>
 ```
 
 As done on GIT Bash...
+
 ![11_11](https://github.com/EzeOnoky/Project-Base-Learning-11/assets/122687798/ef6e533e-1625-42f2-835d-3c94051d49f5)
+
 
 As done on VS CODE...
 
