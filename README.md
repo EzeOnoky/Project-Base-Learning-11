@@ -213,26 +213,23 @@ ssh ec2-user@<WEB1-Private-IP-address>
 ssh ubuntu@<LB-Private-IP-address>
 ```
 
+As done on GIT Bash...
+![11_11](https://github.com/EzeOnoky/Project-Base-Learning-11/assets/122687798/ef6e533e-1625-42f2-835d-3c94051d49f5)
+
+As done on VS CODE...
+
 ![11_17](https://github.com/EzeOnoky/Project-Base-Learning-11/assets/122687798/a4186f02-7436-4036-ab8d-fbee1b0df73b)
 
-
-![11_11](https://github.com/EzeOnoky/Project-Base-Learning-11/assets/122687798/ef6e533e-1625-42f2-835d-3c94051d49f5)
 
 So with this done, our Ansible server will be able to access the other instances(Web server, NFS, DB, LB) using this pem key. on our SSH agent
 
 Also note, that your Load Balancer user is `ubuntu` and user for RHEL-based servers is `ec2-user` So to access the Ubuntu or the RHEL server...just grap the private IP of the specific server you want to access and run below...
 
-`ssh ubuntu@<LB Private IP>`
-ssh ubuntu@172.31.83.60
-
-`ssh ec2-user@<NFS-Private-IP-address>`
-
-`ssh ec2-user@<WEB Server-Private-IP-address>`
-
+The above can also be achieved using GUI(Click, Click..) instead of command line as was used above....
 
 To Connect the vscode to the server through ssh, click on the highlighted section in the bottom left corner
 
-![11_15](https://github.com/EzeOnoky/Project-Base-Learning-11/assets/122687798/921fd916-6574-4374-987e-0731d8e5f217)
+![11_15](https://github.com/EzeOnoky/Project-Base-Learning-11/assets/122687798/cd33a1b0-ca10-46a4-a6ac-879f23b6b05b)
 
 Search for "ssh", then select "open ssh configuration file" from the options. Select `c:\Users\user\.ssh\config`
 
@@ -249,8 +246,10 @@ host: <public IP of the Jenkin-ansible
 
 Click on the highlighted section in the bottom left corner again, and then select "connect to host". From the options, select the host you created in the ssh configuration file. This connects the jenkins-ansible server to vscode remotely through ssh
 
+![11_16a](https://github.com/EzeOnoky/Project-Base-Learning-11/assets/122687798/fea6e225-0cd5-479e-952d-22fedb01f2ba)
 
-Update the /etc/hosts/ of the jenkins-ansible server with the webservers, database, nfs server and load balancer private IP address.
+
+Now proceed to Update the /etc/hosts/ of the jenkins-ansible server with the webservers, database, nfs server and load balancer private IP address.
 
 `sudo vi /etc/hosts`
 
