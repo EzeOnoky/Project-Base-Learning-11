@@ -260,19 +260,22 @@ Now proceed to Update the /etc/hosts/ of the jenkins-ansible server with the web
 
 ### 4B Update the inventory/dev.yml file
 
-Update your inventory/dev.yml file with this snippet of code:
+Update your inventory/dev.yml file with this snippet of code: follow this rule...
+
+- Ensure no spaces are recognized in the inventory/dev.yml file host names, instead of `nfs server`, use `nfsserver`
+- Ensure the Host name used are not repeated anywhere on the file
 
 #### update below with your own record
 ```
-NFS ansible_host=<NFS-Private-IP> ansible_ssh_user=ec2-user ansible_ssh_private_key_file=dybran-ec2.pem
+nfsserver ansible_host=<NFS-Private-IP> ansible_ssh_user=ec2-user ansible_ssh_private_key_file=dybran-ec2.pem
 
 WEB1 ansible_host=<WEB1-Private-IP> ansible_ssh_user=ec2-user ansible_ssh_private_key_file=dybran-ec2.pem
 
 WEB2 ansible_host=<WEB2-Private-IP> ansible_ssh_user=ec2-user ansible_ssh_private_key_file=dybran-ec2.pem
 
-DBS ansible_host=<DB-Private-IP> ansible_ssh_user=ec2-user ansible_ssh_private_key_file=dybran-ec2.pem
+DataB ansible_host=<DB-Private-IP> ansible_ssh_user=ec2-user ansible_ssh_private_key_file=dybran-ec2.pem
 
-LB ansible_host=<LB-Private-IP> ansible_ssh_user=ubuntu ansible_ssh_private_key_file=dybran-ec2.pem
+LoadB ansible_host=<LB-Private-IP> ansible_ssh_user=ubuntu ansible_ssh_private_key_file=dybran-ec2.pem
 
 [NFS]
 <NFS-Private-IP> ansible_ssh_user='ec2-user'
@@ -289,7 +292,8 @@ LB ansible_host=<LB-Private-IP> ansible_ssh_user=ubuntu ansible_ssh_private_key_
 ```
 The above a simply telling ansible what users(Ubuntu or ec2-user) is matched to each IP
 
-![11_19](https://github.com/EzeOnoky/Project-Base-Learning-11/assets/122687798/3e57ed58-7f9e-481c-9457-84f2c7a3b2fa)
+![11_19](https://github.com/EzeOnoky/Project-Base-Learning-11/assets/122687798/719bd99d-fe20-4e50-9164-66ed8db250d3)
+
 
 
 ## STEP 5      **CREATE A COMMON PLAYBOOK**
@@ -403,17 +407,31 @@ Now We push the new brance to the remote branch
 ![11_20d](https://github.com/EzeOnoky/Project-Base-Learning-11/assets/122687798/7a382bbf-2c1d-4786-a0d2-0c51003a56e5)
 
 
+NOTE...If not alreay done, you may be requested to autenthicate your GITHUB user account before you can commit these changes...see below.
+
+![11_20f](https://github.com/EzeOnoky/Project-Base-Learning-11/assets/122687798/8cb76099-446d-4f2e-a3ab-a44e1d4ce3b7)
+
+
 ### 6B Create a Pull request (PR)
 
-Now return to GIT Hub, follow below steps to pull the request
+Now return to GIT Hub, follow below steps 1 - 5 to pull the request
 
-#### 11_22 pix showing how to create a pull request
+![11_22](https://github.com/EzeOnoky/Project-Base-Learning-11/assets/122687798/95276bcc-d6c0-4de3-8beb-c16152aa28a4)
+
+1 - Click on pull requests
+2 - Click on new pull request
+3 - Select the branch i.e prj-11
+4 - Click on create pull request
+5 - The pull requests section will be updated showing that the pull request was a success.
 
 The pull request will be reviewed and if it is approved, it will be merged to the main branch. You act as the reviewer, approve and merge the process...
 
 ### 6B Merging the code to the main branch
 
-#### 11_23 pix showing how to merge the code to the main branch
+Scroll down to locate the Merge Pull Request clickable link...and follow below steps to merge
+
+![11_23](https://github.com/EzeOnoky/Project-Base-Learning-11/assets/122687798/589dbb42-9b08-422f-a33e-2069b36ce35d)
+
 
 ### 6C Exit from the Feature Branch to the main branch
 
@@ -429,16 +447,18 @@ then download the updated copy
 
 As seen below, the pull commmand updates what we have in the project branch(Feauture branch prj-11) into our master(main) branch 
 
-![11_20e](https://github.com/EzeOnoky/Project-Base-Learning-11/assets/122687798/fd5f97f0-ae65-4f53-8b27-29dddc745e90)
-
+![11_24](https://github.com/EzeOnoky/Project-Base-Learning-11/assets/122687798/4787243f-a989-4911-83e4-99652e1ef2f8)
 
 When this is done, our jenkins builds the artifacts automatically...see below
 
-#### 11_23 pix showing your current jenkins build
+![11_25](https://github.com/EzeOnoky/Project-Base-Learning-11/assets/122687798/39e5f8fa-c369-4926-a76a-a43290af03f4)
+
 
 ...then saves the files in the `/var/lib/jenkins/jobs/ANSIBLE/builds/3/archive` directory on the jenkins-ansible server. This can also be confirmed on the Jenkins login
 
 `ls /var/lib/jenkins/jobs/ANSIBLE/builds/3/archive`
+
+![11_26](https://github.com/EzeOnoky/Project-Base-Learning-11/assets/122687798/75fbc0de-babe-4e11-b9d1-96d0995ae77e)
 
 
 ## STEP 7      **RUN FIRST ANSIBLE TEST**
@@ -452,16 +472,23 @@ cd ansible-config-mgt
 ansible-playbook -i inventory/dev.yml playbooks/common.yml
 ansible all -m ping -i /var/lib/jenkins/jobs/ansible/builds/<build_number>/archive/inventory/dev.yml
 ```
-#### 11_26 pix showing successful execution of 2nd & 3rd CMD
+
+![11_27](https://github.com/EzeOnoky/Project-Base-Learning-11/assets/122687798/f9c06d5f-e0a6-4e85-95bc-07bcd60f43c6)
+
+
 Note: if we do not want "host key checking", We can uncomment `#host_key_checking=False` in the `/etc/ansible/ansible.cfg file`.
 
-#### 11_26 pix showing the uncommenting of  `#host_key_checking=False` 
+![11_28](https://github.com/EzeOnoky/Project-Base-Learning-11/assets/122687798/ab5fef51-cc2b-470f-9150-28d07c9a2559)
+
 
 To run our playbook, We check if the syntax is **OK** by running the command
 
 `ansible-playbook -i /var/lib/jenkins/jobs/ansible/builds/<build_number>/archive/inventory/dev.yml /var/lib/jenkins/jobs/ansible/builds/<build_number>/archive/playbooks/common.yml --syntax-check`
 
 If the syntax is OK, the playbook will be displayed. i.e `playbook: <playbook-file-path>`
+
+![11_29](https://github.com/EzeOnoky/Project-Base-Learning-11/assets/122687798/fa0088f1-937b-48b8-a706-a9fba44617b7)
+
 
 For a Dry Run to see what actually happens when you run the playbook
 
@@ -471,8 +498,7 @@ To run the playbook
 
 `ansible-playbook -i /var/lib/jenkins/jobs/ansible/builds/<build_number>/archive/inventory/dev.yml /var/lib/jenkins/jobs/ansible/builds/<build_number>/archive/playbooks/common.yml`
 
-#### 11_27 pix showing successful run of the playbook
-
+![11_30](https://github.com/EzeOnoky/Project-Base-Learning-11/assets/122687798/de2c3a6b-21e4-487b-b380-401b98fe7fbe)
 
 If there are no errors, check if wireshark is installed in each of the servers by logging into the servers and running the command
 
@@ -480,7 +506,8 @@ If there are no errors, check if wireshark is installed in each of the servers b
 or 
 `wireshark --version`
 
-#### 11_28 pix showing successful wireshark installation
+![11_31](https://github.com/EzeOnoky/Project-Base-Learning-11/assets/122687798/edf16359-89a0-49ac-bea2-45366c1ac8b2)
+
 
 **Note** : Ansible is **Idempotent**. Idempotency means that if an ansible playbook is run severally, it only makes the change to the server once unless there is a change in the playbook.
 
