@@ -511,6 +511,9 @@ or
 
 **Note** : Ansible is **Idempotent**. Idempotency means that if an ansible playbook is run severally, it only makes the change to the server once unless there is a change in the playbook.
 
+### Note 
+If you encounter any error which requires you to update the any of the files in Inventory or Playbooks Directory, you have to go through all the process in step 6 before you can run the Ansible playbook again.
+
 # CONGRATULATIONS EZE ! You have just automated routine tasks using Ansible Configuration Management Tool
 
 
