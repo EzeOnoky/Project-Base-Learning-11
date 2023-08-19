@@ -260,11 +260,11 @@ Now proceed to Update the /etc/hosts/ of the jenkins-ansible server with the web
 ![11_18](https://github.com/EzeOnoky/Project-Base-Learning-11/assets/122687798/7c29c3f1-9290-4dd7-9b91-13bb374be45e)
 
 
-### 4B Update the inventory/dev.yml file
+### 4B - UPDATE INVENTORY/DEV.YML FILE
 
 Update your inventory/dev.yml file with this snippet of code: follow this rule...
 
-- Ensure no spaces are recognized in the inventory/dev.yml file host names, instead of `nfs server`, use `nfsserver`
+- Ensure no spaces are recognized in the **inventory/dev.yml** file host names, e.g instead of `nfs server`, use `nfsserver`
 - Ensure the Host name used are not repeated anywhere on the file
 
 #### update below with your own record
@@ -298,20 +298,20 @@ The above a simply telling ansible what users(Ubuntu or ec2-user) is matched to 
 
 
 
-## STEP 5      **CREATE A COMMON PLAYBOOK**
+## STEP 5 - CREATE A COMMON PLAYBOOK
 
-It is time to start giving Ansible the instructions on what you needs to be performed on all servers listed in `inventory/dev`
+It is time to start giving Ansible the instructions on what you need to be performed on all servers listed in **`inventory/dev`**
 
-In `common.yml` playbook, we will write configuration for repeatable, re-usable, and multi-machine tasks that is common to systems within the infrastructure
+In **`common.yml`** playbook, we will write configuration for repeatable, re-usable, and multi-machine tasks that is common to systems within the infrastructure
 
-Update your `playbooks/common.yml` file with following code:
+Update your **`playbooks/common.yml`** file with following code:
 
 On your VS Code, click on the common.yml file and paste below...
 
 ```
 ---
 - name: update web, nfs and db servers
-  hosts: webservers, nfs-server, db01
+  hosts: WEB, NFS, DB
   remote_user: ec2-user
   become: yes
   become_user: root
@@ -322,7 +322,7 @@ On your VS Code, click on the common.yml file and paste below...
         state: latest
 
 - name: update LB server
-  hosts: load-balancer
+  hosts: LB
   remote_user: ubuntu
   become: yes
   become_user: root
@@ -337,9 +337,11 @@ On your VS Code, click on the common.yml file and paste below...
         state: latest
 ```
 
+```
+
 ![11_20](https://github.com/EzeOnoky/Project-Base-Learning-11/assets/122687798/cbb4c471-dcc8-4149-99ea-bad53094fdae)
 
-Above playbook is divided into two parts, each of them is intended to perform the same task: install wireshark utility (or make sure it is updated to the latest version) on your RHEL 8 and Ubuntu servers. It uses root user to perform this task and respective package manager: yum for RHEL 8 and apt for Ubuntu.The above playbook will install the latest wireshark utility to the various servers.
+Above playbook is divided into two parts, each of them is intended to perform the same task: install wireshark utility (or make sure it is updated to the latest version) on your RHEL 8 and Ubuntu servers. It uses root user to perform this task and respective package manager: **yum** for RHEL 8 and **apt** for Ubuntu.The above playbook will install the latest wireshark utility to the various servers.
 
 Feel free to update this playbook with following tasks:
 
@@ -347,30 +349,39 @@ Feel free to update this playbook with following tasks:
 - Change timezone on all servers
 - Run some shell script
 
+To achieve Under **task:** add the below line
+
+```
+- name: Creates directory
+  file:
+    path: /home/onokyeze
+    state: directory
+
+- name: Creating a file
+    file:
+      path: /home/onokyeze/onoky_test_file
+      state: touch
+
+- name: set timezone to Asia/Tokyo
+  timezone:
+    name: Asia/Tokyo
+```
 Further explaination of each line in our playbook task, see below bold faced...
 
-**name: update web, nfs and db servers**  -   *description of what you want to do*
-
-**hosts: webservers, nfs-server, db01**  - *servers are grouped based on their server types - tis is RHEL group*
-
+**name: update web, nfs and db servers**  -   *description of what you want to do, this can be anything u decide*
+**hosts:  WEB, NFS, DB**  - *the names captured here must tally with host names on your **inventory/dev.yml** file*
 **remote_user: ec2-user**  - *this is about how you want to access the servers, ec2-user is used here*
-
 **become: yes**  -  *means you are telling this user to become the sudo user*
-
 **become_user: root** -  *run the installation as a root user*
-
-**tasks:**
-
+**tasks:** - *Announces that the remote host needs to perform a task*
 **name: ensure wireshark is at the latest version**
-
 **yum:**  - *package manager for RedHart is yum, for Ubuntu u would see apt*
-
 **name: wireshark** - *name of the application to be installed*
-
 **state: latest**  - *you are telling wireshark to install the latest version*
-
-**---**  -  *this is seen at the begining, You satrt all YMAL file with this ---*
-
+**---**  -  *this is seen at the begining, You start all YMAL file with this ---*
+**file:**  *Engages Ansible’s file module to create a new file*
+**path:**  *Defines the path for the new file on the remote host’s hard drive*
+**state:**  *Similar to the touch command in the Ubuntu/RHEL terminal, entering touch creates*
 
 For a better understanding of Ansible playbooks – [watch this video from RedHat](https://www.youtube.com/watch?v=ZAdJ7CdN7DY) and read this [article](https://www.redhat.com/en/topics/automation/what-is-an-ansible-playbook). 
 
