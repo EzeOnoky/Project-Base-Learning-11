@@ -173,7 +173,7 @@ echo dev.yml staging.yml uat.yml prod.yml
 ![11_13](https://github.com/EzeOnoky/Project-Base-Learning-11/assets/122687798/19fefbb3-5641-416d-9b6d-6a7a80aa6424)
 
 
-## STEP 4      **SET UP AN ANSIBLE INVENTORY**
+## STEP 4 -  SET UP AN ANSIBLE INVENTORY
 
 An Ansible inventory file defines the hosts and groups of hosts upon which commands, modules, and tasks in a playbook operate. Since our intention is to execute Linux commands on remote hosts, and ensure that it is the intended configuration on a particular server that occurs. It is important to have a way to organize our hosts in such an Inventory.
 
@@ -181,14 +181,14 @@ Save below inventory structure in the `inventory/dev` file to start configuring 
 
 Note: Ansible uses TCP port 22 by default, which means it needs to ssh into target servers from Jenkins-Ansible host – for this you can implement the concept of ssh-agent. Now you need to import your key into ssh-agent:
 
-### 4A To setup SSH agent and connect VS Code to the Jenkins-Ansible instance.
+### 4A - SETUP SSH AGENT & CONNECT VS CODE TO THE JENKINS-ANSIBLE INSTANCE
 
 For a guide on how to setup SSH agent and connect VS Code to your Jenkins-Ansible instance
-[Click here](https://www.youtube.com/watch?v=lKXMyln_5q4) 
-[Click here](https://(www.youtube.com/watch?v=OplGrY74qog)
+[Click here](https://([www.youtube.com/watch?v=OplGrY74qog](https://www.youtube.com/watch?v=OplGrY74qog))
 
 [How to connect to Bastion Host on Visual Studio code via SSH Agent](https://www.youtube.com/watch?v=RRRQLgAfcJw&list=PLtPuNR8I4TvlBxy8IUXUDnmtlKawRsWH_&t=1445s)
-See at the bottom - **EXTRA** for documentation on this...
+
+See at the bottom - **EXTRA** for documentation on this based on this video [Click here](https://www.youtube.com/watch?v=lKXMyln_5q4)...
 
 Open the link [openSSH-documentation](https://learn.microsoft.com/en-us/windows-server/administration/openssh/openssh_install_firstuse?tabs=powershell) and follow the setup procedure.
 
