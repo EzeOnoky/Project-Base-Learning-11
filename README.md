@@ -8,7 +8,7 @@ Ansible Configuration Management – Automating Project 7 to 10
 
 ## BACKGROUND KNOWLEDGE
 
-- We can Automate routine tasks done on project 7 - 10 using [Ansible configuration management tool](https://www.redhat.com/en/topics/automation/what-is-configuration-management#:~:text=Configuration%20management%20is%20a%20process,in%20a%20desired%2C%20consistent%20state.&text=Managing%20IT%20system%20configurations%20involves,building%20and%20maintaining%20those%20systems). Projects 7 to 10 you had to perform a lot of manual operations to set up virtual servers, install and configure required software, deploy your web application. This project seeks to automate all these task. At the same time you will become confident at writing code using declarative language such as [YAML](https://en.wikipedia.org/wiki/YAML) - (`<YAML is the main language we use in Ansible to write codes>`).
+- We can Automate routine tasks done on project 7 - 10 using [Ansible configuration management tool](https://www.redhat.com/en/topics/automation/what-is-configuration-management#:~:text=Configuration%20management%20is%20a%20process,in%20a%20desired%2C%20consistent%20state.&text=Managing%20IT%20system%20configurations%20involves,building%20and%20maintaining%20those%20systems). Projects 7 to 10 you had to perform a lot of manual operations to set up virtual servers, install and configure required software, deploy your web application. This project seeks to automate all these task. At the same time you will become confident at writing code using declarative language such as [YAML](https://en.wikipedia.org/wiki/YAML) - YAML is the main language we use in Ansible to write codes.
 
 
 - Ansible Client as a Jump Server (Bastion Host). A Jump Server (sometimes also referred as Bastion Host) is an intermediary server through which access to internal network can be provided. If you think about the current architecture you are working on, ideally, the webservers would be inside a secured network which cannot be reached directly from the Internet. That means, even DevOps engineers cannot SSH into the Web servers directly and can only access it through a Jump Server – it provide better security and reduces attack surface(the attacker can only enter via the JENKIN/ANSIBLE Server - jump server).
@@ -35,7 +35,7 @@ Ansible Configuration Management – Automating Project 7 to 10
   
 ![11_2](https://github.com/EzeOnoky/Project-Base-Learning-11/assets/122687798/d60dc43a-ce48-4360-a63f-c074f49747f7)
 
-## STEP 1      **INSTALL AND CONFIGURE ANSIBLE ON OUR ACTIVE JENKIN SERVER**
+## STEP 1  -  INSTALL AND CONFIGURE ANSIBLE ON OUR ACTIVE JENKIN SERVER
 
 Note, prior to above step 1, your servers running on RHEL8, 4 of them - (the 2 web server, DB, NFS), your Ubuntu 20.04 LB & Ubuntu 20.04 Jenkins would have been configured - refer to project 7, 8, 9 respectively for some guidance on this setup. 
 
@@ -44,7 +44,7 @@ Already Jenkins is running on our Ubuntu 20.04 server, now we will be Installing
 ![11_3](https://github.com/EzeOnoky/Project-Base-Learning-11/assets/122687798/6d190aad-dc65-42d6-a7c0-4dcfe0479c2d)
 
 
-### 1A.In your GitHub account create a new repository and name it `ansible-config-mgt`
+### 1A - In your GitHub account create a new repository and name it `ansible-config-mgt`
 
 ![11_4](https://github.com/EzeOnoky/Project-Base-Learning-11/assets/122687798/d4ac5bcf-f42e-43f5-9d2b-860f733ffce5)
 
@@ -58,7 +58,7 @@ ansible --version
 ![11_5](https://github.com/EzeOnoky/Project-Base-Learning-11/assets/122687798/08a5b167-3eea-407d-b93f-409ebb2ae612)
 
 
-### 1C. Configure Jenkins
+### 1C -  CONFIGURE JENKINS
 
 Make reference to your project 9,  follow the step to  configure Jenkins
 
@@ -86,11 +86,11 @@ Now your setup will look like this:
 N/B: Every time the jenkins-ansible server stop/start, we have to reconfigure GitHub webhook to the new IP address. In order to avoid this, we allocate an Elastic IP to the Jenkins-Ansible server. Elastic IP is free only when it is being allocated to an EC2 Instance so we release Elastic IP once the instance is terminated.
 
 
-## STEP 2      **PREPARE THE DEVELOPMENT ENVIRONMENT USING VISUAL STUDIO CODE**
+## STEP 2 -   PREPARE THE DEVELOPMENT ENVIRONMENT USING VISUAL STUDIO CODE
 
 VISUAL STUDIO CODE is a text Editor which limits your back and forth between your SSH Client window, GIT Hub repository Window etc. It bring all to one interface, so with CMD line you can interface with ALL.
 
-### 2A. INSTALL VS CODE and LINK TO YOUR NEW GITHUB `ansible-config-mgt` REPO
+### 2A - INSTALL VS CODE & LINK TO YOUR NEW GITHUB `ansible-config-mgt` REPO
 
 First part of ‘DevOps’ is ‘Dev’, which means you will require to write some codes and you shall have proper tools that will make your coding and debugging comfortable – you need an Integrated development environment (IDE) or Source-code Editor. VS Code is the preference tool to use here, for this project, ensure below highlighted are installed on your VS code.
 
@@ -126,9 +126,9 @@ After the cloning, check below path for the clone GITHUB repo
 ![11_8aa](https://github.com/EzeOnoky/Project-Base-Learning-11/assets/122687798/d77ceb17-40a2-42ab-88c4-20d9f8fcd276)
 
 
-## STEP 3      **BEGIN ANSIBLE DEVELOPMENT**
+## STEP 3  -  BEGIN ANSIBLE DEVELOPMENT
 
-### 3A New Branch Creation in the ansible-config-mgt GitHub repository
+### 3A - NEW BRANCH CREATION ON THE `ansible-config-mgt` GITHUB RESPOSITORY
 
 In the ansible-config-mgt GitHub repository, We create a new branch that will be used for development of a new feature and name it prj-11
 
@@ -147,10 +147,10 @@ git status
 Notice the bottom left, the prompt has changed to the new branch we just created i.e **prj-11**. If you also check the bottom left corner of your VS Code, you will see the newly created branch. When you switch to the **Main** branch, the prompt will change. To switch between branches, click the name of your current branch in the bottom left and select your new branch from the list shown. 
 
 
-### 3B On your new Branch, Create a Playbooks Directory & Inventory Directory
+### 3B - ON YOUR NEW BRANCH, CREATE A PLAYBOOKS DIRECTORY & AN INVENTORY DIRECTORY
 In the new branch we will be creating some directories that we will be working with. Create a directory and name it playbooks – it will be used to store all your playbook files. Also create another directory and name it inventory – it will be used to keep your hosts organised.
 
-### 3C On Playbook Directory-Create your 1st Playbook & On Inventory Directory-Create An inventory file (.yml) for each environment
+### 3C - On Playbook Directory-Create your 1st Playbook & On Inventory Directory-Create An inventory file (.yml) for each environment
 
 - Within the playbooks folder, create your first playbook, and name it common.yml
 
