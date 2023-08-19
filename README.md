@@ -150,7 +150,9 @@ Notice the bottom left, the prompt has changed to the new branch we just created
 ### 3B - ON YOUR NEW BRANCH, CREATE A PLAYBOOKS DIRECTORY & AN INVENTORY DIRECTORY
 In the new branch we will be creating some directories that we will be working with. Create a directory and name it playbooks – it will be used to store all your playbook files. Also create another directory and name it inventory – it will be used to keep your hosts organised.
 
-### 3C - On Playbook Directory-Create your 1st Playbook & On Inventory Directory-Create An inventory file (.yml) for each environment
+### 3C - CREATE .YML FILES ON YOUR PLAYBOOKS DIRECTORY & INVENTORY DIRECTORY
+
+On Playbook Directory-Create your 1st Playbook & On Inventory Directory-Create An inventory file (.yml) for each environment
 
 - Within the playbooks folder, create your first playbook, and name it common.yml
 
