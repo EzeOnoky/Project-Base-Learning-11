@@ -437,14 +437,16 @@ Now return to GIT Hub, follow below steps 1 - 5 to pull the request
 
 The pull request will be reviewed and if it is approved, it will be merged to the main branch. You act as the reviewer, approve and merge the process...
 
-### 6B Merging the code to the main branch
+### 6C - MERGING THE CODE TO THE MAIN BRANCH
 
 Scroll down to locate the Merge Pull Request clickable link...and follow below steps to merge
 
 ![11_23](https://github.com/EzeOnoky/Project-Base-Learning-11/assets/122687798/589dbb42-9b08-422f-a33e-2069b36ce35d)
 
 
-### 6C Exit from the Feature Branch to the main branch
+### 6D - CONFIRM JENKINS BUILD HISTORY IS UPDATED
+
+Now return to your VS Code, Exit from the Feature Branch to the main branch
 
 After the merge is done, the inventory and playbooks directories are updated in the main branch.
 
@@ -472,7 +474,7 @@ When this is done, our jenkins builds the artifacts automatically...see below
 ![11_26](https://github.com/EzeOnoky/Project-Base-Learning-11/assets/122687798/75fbc0de-babe-4e11-b9d1-96d0995ae77e)
 
 
-## STEP 7      **RUN FIRST ANSIBLE TEST**
+## STEP 7 - RUN FIRST ANSIBLE TEST
 
 Now, it is time to execute ansible-playbook command and verify if your playbook actually works
 
@@ -523,7 +525,7 @@ or
 **Note** : Ansible is **Idempotent**. Idempotency means that if an ansible playbook is run severally, it only makes the change to the server once unless there is a change in the playbook.
 
 ### Note 
-If you encounter any error which requires you to update the any of the files in Inventory or Playbooks Directory, you have to go through all the process in step 6 before you can run the Ansible playbook again.
+While running the Ansible Playbook, If you encounter any error which requires you to update the any of the files in Inventory or Playbooks Directory, you have to go through all the process in step 6 before you can run the Ansible playbook again.
 
 # CONGRATULATIONS EZE ! You have just automated routine tasks using Ansible Configuration Management Tool
 
