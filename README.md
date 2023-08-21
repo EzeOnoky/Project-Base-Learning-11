@@ -366,33 +366,20 @@ To achieve 1 & 2 above... Under **task:** add the below line
 ```
 Further explaination of each line in our playbook task, see below bold faced...
 
-**name: update web, nfs and db servers**  -   *description of what you want to do, this can be anything u decide*
-
-**hosts:  WEB, NFS, DB**  - *the names captured here must tally with host names on your **inventory/dev.yml** file*
-
-**remote_user: ec2-user**  - *this is about how you want to access the servers, ec2-user is used here*
-
-**become: yes**  -  *means you are telling this user to become the sudo user*
-
-**become_user: root** -  *run the installation as a root user*
-
-**tasks:** - *Announces that the remote host needs to perform a task*
-
-**name: ensure wireshark is at the latest version**
-
-**yum:**  - *package manager for RedHart is yum, for Ubuntu u would see apt*
-
-**name: wireshark** - *name of the application to be installed*
-
-**state: latest**  - *you are telling wireshark to install the latest version*
-
-**---**  -  *this is seen at the begining, You start all YMAL file with this ---*
-
-**file:**  *Engages Ansible’s file module to create a new file*
-
-**path:**  *Defines the path for the new file on the remote host’s hard drive*
-
-**state:**  *Similar to the touch command in the Ubuntu/RHEL terminal, entering touch creates*
+- **name: update web, nfs and db servers**  -   *description of what you want to do, this can be anything u decide*
+- **hosts:  WEB, NFS, DB**  - *the names captured here must tally with host names on your **inventory/dev.yml** file*
+- **remote_user: ec2-user**  - *this is about how you want to access the servers, ec2-user is used here*
+- **become: yes**  -  *means you are telling this user to become the sudo user*
+- **become_user: root** -  *run the installation as a root user*
+- **tasks:** - *Announces that the remote host needs to perform a task*
+- **name: ensure wireshark is at the latest version**
+- **yum:**  - *package manager for RedHart is yum, for Ubuntu u would see apt*
+- **name: wireshark** - *name of the application to be installed*
+- **state: latest**  - *you are telling wireshark to install the latest version*
+- **---**  -  *this is seen at the begining, You start all YMAL file with this ---*
+- **file:**  *Engages Ansible’s file module to create a new file*
+- **path:**  *Defines the path for the new file on the remote host’s hard drive*
+- **state:**  *Similar to the touch command in the Ubuntu/RHEL terminal, entering touch creates*
 
 For a better understanding of Ansible playbooks – [watch this video from RedHat](https://www.youtube.com/watch?v=ZAdJ7CdN7DY) and read this [article](https://www.redhat.com/en/topics/automation/what-is-an-ansible-playbook). 
 
