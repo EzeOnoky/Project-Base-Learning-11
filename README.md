@@ -337,8 +337,6 @@ On your VS Code, click on the common.yml file and paste below...
         state: latest
 ```
 
-```
-
 ![11_20](https://github.com/EzeOnoky/Project-Base-Learning-11/assets/122687798/cbb4c471-dcc8-4149-99ea-bad53094fdae)
 
 Above playbook is divided into two parts, each of them is intended to perform the same task: install wireshark utility (or make sure it is updated to the latest version) on your RHEL 8 and Ubuntu servers. It uses root user to perform this task and respective package manager: **yum** for RHEL 8 and **apt** for Ubuntu.The above playbook will install the latest wireshark utility to the various servers.
