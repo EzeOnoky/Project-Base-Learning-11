@@ -397,18 +397,18 @@ Further explaination of each line in our playbook task, see below bold faced...
 For a better understanding of Ansible playbooks – [watch this video from RedHat](https://www.youtube.com/watch?v=ZAdJ7CdN7DY) and read this [article](https://www.redhat.com/en/topics/automation/what-is-an-ansible-playbook). 
 
 
-## STEP 6      **UPDATE GIT WITH THE LATEST CODE**
+## STEP 6 - UPDATE GIT WITH THE LATEST CODE
 
 Now all of the directories and files are in the local machine(our computer) and we need to push changes made locally to GitHub.
 
-Ideally, We will be working within a team of other DevOps engineers and developers where collaboration is a key component. GIT helps us collabrate in a DevOps team . In many organisations there is a development rule that do not allow to deploy any code before it has been reviewed by an extra pair of eyes – it is also called "Four eyes principle".
+Ideally, We will be working within a team of other DevOps engineers and developers where collaboration is a key component. **GIT helps us collabrate in a DevOps team**. In many organisations there is a development rule that do not allow to deploy any code before it has been reviewed by an extra pair of eyes – it is also called "Four eyes principle".
 
 Now we need to raise a **pull request** for the prj-11 branch we created and the branch peer reviewed and merged to the **main** branch.
 
-### 6A Commit your code into GitHub
-video 1:00 - 
+### 6A - COMMIT CODE INTO GITHUB
 
-Firstly, list all the files you are yet to committed/sent over to GIT using below...
+Firstly, list all the files you are yet to committed/send over to GIT using below...
+
 `git status`
 
 ![11_20A](https://github.com/EzeOnoky/Project-Base-Learning-11/assets/122687798/3d75920f-5000-4012-a869-777cd21debe3)
@@ -426,7 +426,7 @@ So after committing changes for ALL file (./), now we proceed to commit changes 
 
 ![11_20c](https://github.com/EzeOnoky/Project-Base-Learning-11/assets/122687798/73971db1-c115-4911-b1b3-2f9b992a10a8)
 
-Now We push the new brance to the remote branch
+Now We push the new branch to the remote branch
 
 ![11_20d](https://github.com/EzeOnoky/Project-Base-Learning-11/assets/122687798/7a382bbf-2c1d-4786-a0d2-0c51003a56e5)
 
@@ -436,17 +436,17 @@ NOTE...If not alreay done, you may be requested to autenthicate your GITHUB user
 ![11_20f](https://github.com/EzeOnoky/Project-Base-Learning-11/assets/122687798/8cb76099-446d-4f2e-a3ab-a44e1d4ce3b7)
 
 
-### 6B Create a Pull request (PR)
+### 6B - CREATE A PULL REQUEST (PR)
 
 Now return to GIT Hub, follow below steps 1 - 5 to pull the request
 
 ![11_22](https://github.com/EzeOnoky/Project-Base-Learning-11/assets/122687798/95276bcc-d6c0-4de3-8beb-c16152aa28a4)
 
-1 - Click on pull requests
-2 - Click on new pull request
-3 - Select the branch i.e prj-11
-4 - Click on create pull request
-5 - The pull requests section will be updated showing that the pull request was a success.
+- 1 Click on pull requests
+- 2 Click on new pull request
+- 3 Select the branch i.e prj-11
+- 4 Click on create pull request
+- 5 The pull requests section will be updated showing that the pull request was a success.
 
 The pull request will be reviewed and if it is approved, it will be merged to the main branch. You act as the reviewer, approve and merge the process...
 
