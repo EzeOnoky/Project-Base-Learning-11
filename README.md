@@ -410,7 +410,7 @@ Firstly, list all the files you are yet to committed/send over to GIT using belo
 ![11_20A](https://github.com/EzeOnoky/Project-Base-Learning-11/assets/122687798/3d75920f-5000-4012-a869-777cd21debe3)
 
 
-Now proceed to commit the changes...ensure you are on the prj-11 Branch
+Now proceed to commit the changes...ensure you are on the prj-11 Branch, note, `git add .` captures ALL the files in ALL the folders.
 
 ```
 git add <selected files>
@@ -421,6 +421,8 @@ git commit -m "commit message"
 So after committing changes for ALL file (./), now we proceed to commit changes made on the playbook directory( ../playbooks/
 
 ![11_20c](https://github.com/EzeOnoky/Project-Base-Learning-11/assets/122687798/73971db1-c115-4911-b1b3-2f9b992a10a8)
+
+Once we run `git status`, and the output shows **nothing to commit, working tree clean** , we can now proceed to below...
 
 Now We push the new branch to the remote branch
 
