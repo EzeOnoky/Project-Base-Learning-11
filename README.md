@@ -107,20 +107,22 @@ Note : Remote Development on the VS Code - Helps open SSH on remote servers
 
 **Steps to Connect VS CODE to GIT HUB REPO**
 
-![11_8b](https://github.com/EzeOnoky/Project-Base-Learning-11/assets/122687798/880f8b14-f27f-40ba-8306-ac006035e5ff)
+Using command line, you can achieve the cloning of your GIT repo, on your VS CODE...
 
-Or you can use CMD line to also achieve above
-
-...Spin up the VS code terminal and CD into the folder and begin your configurations
+Spin up a new VS code terminal and CD into the folder where you want to clone your GIT Repo and begin your configurations
 
 ```
 git clone <ansible-config-mgt repo link>
 cd ansible-config-mgt
-git pull
 git status
 ```
 
 ![11_9](https://github.com/EzeOnoky/Project-Base-Learning-11/assets/122687798/e2d7c7c8-da1c-423b-a6ba-d0f1ba1c1e77)
+
+
+Or you can use GUI to also achieve above
+
+![11_8b](https://github.com/EzeOnoky/Project-Base-Learning-11/assets/122687798/880f8b14-f27f-40ba-8306-ac006035e5ff)
 
 
 After the cloning, check below path for the clone GITHUB repo
@@ -140,7 +142,7 @@ To create this branch, we run the commands
 
 ```
 git status
-git checkout -b PRJ-11`
+git checkout -b prj-11`
 git status
 ```
 
