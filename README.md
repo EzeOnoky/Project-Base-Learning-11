@@ -489,9 +489,7 @@ When this is done, our jenkins builds the artifacts automatically...see below
 
 Now, it is time to execute ansible-playbook command and verify if your playbook actually works
 
-We cd into **ansible-config-mgt**, To test if we can access the other servers, we run the 2nd & 3rd command below
-
-ansible all -m ping -i /var/lib/jenkins/jobs/ansible/builds/<build_number>/archive/inventory/dev.yml
+We cd into **ansible-config-mgt**, To test if we can access the other servers, we run the 2 commands below...
 
 ```
 cd /var/lib/jenkins/jobs/ANSIBLE/builds/3/archive
