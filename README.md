@@ -122,12 +122,18 @@ git status
 
 Or you can use GUI to also achieve above
 
-![11_8b](https://github.com/EzeOnoky/Project-Base-Learning-11/assets/122687798/880f8b14-f27f-40ba-8306-ac006035e5ff)
+
+![11_8b](https://github.com/EzeOnoky/Project-Base-Learning-11/assets/122687798/e5ab25b1-6b7d-4c91-aee5-ddc70f8cdc6b)
 
 
 After the cloning, check below path for the clone GITHUB repo
 
 ![11_8aa](https://github.com/EzeOnoky/Project-Base-Learning-11/assets/122687798/d77ceb17-40a2-42ab-88c4-20d9f8fcd276)
+
+
+After Successful cloning of the **GIT HUB REPO** on your **VS CODE**, follow below steps to launch your new terminal
+
+![11_8c](https://github.com/EzeOnoky/Project-Base-Learning-11/assets/122687798/f0ec3a83-3df2-4f27-85fe-ff362f6028a4)
 
 
 ## STEP 3  -  BEGIN ANSIBLE DEVELOPMENT
