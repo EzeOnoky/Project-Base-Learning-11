@@ -50,6 +50,8 @@ Already Jenkins is running on our Ubuntu 20.04 server, now we will be Installing
 
 ### 1B. We install ansible on our jenkins server and rename it to Jenkins-Ansible
 
+Before this, go to Project 9, implement all the steps in STEP 1 and then return here....
+
 ```
 sudo apt update
 sudo apt install ansible
