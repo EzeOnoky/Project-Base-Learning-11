@@ -225,15 +225,14 @@ ssh ec2-user@<WEB1-Private-IP-address>
 ssh ubuntu@<LB-Private-IP-address>
 ```
 
-As done on GIT Bash...
-
-![11_11](https://github.com/EzeOnoky/Project-Base-Learning-11/assets/122687798/ef6e533e-1625-42f2-835d-3c94051d49f5)
-
-
 As done on VS CODE...
 
 ![11_17](https://github.com/EzeOnoky/Project-Base-Learning-11/assets/122687798/a4186f02-7436-4036-ab8d-fbee1b0df73b)
 
+
+As done on GIT Bash...
+
+![11_11](https://github.com/EzeOnoky/Project-Base-Learning-11/assets/122687798/ef6e533e-1625-42f2-835d-3c94051d49f5)
 
 So with this done, our Ansible server will be able to access the other instances(Web server, NFS, DB, LB) using this pem key. on our SSH agent
 
