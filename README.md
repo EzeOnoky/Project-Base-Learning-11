@@ -54,7 +54,7 @@ Before this, go to Project 9, implement all the steps in STEP 1 and then return 
 
 ```
 sudo apt update
-sudo apt install ansible
+sudo apt install ansible -y
 ansible --version
 ```
 ![11_5](https://github.com/EzeOnoky/Project-Base-Learning-11/assets/122687798/08a5b167-3eea-407d-b93f-409ebb2ae612)
