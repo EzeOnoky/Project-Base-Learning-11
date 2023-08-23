@@ -278,15 +278,15 @@ Update your inventory/dev.yml file with this snippet of code: follow this rule..
 
 #### update below with your own record
 ```
-nfsserver ansible_host=<NFS-Private-IP> ansible_ssh_user=ec2-user ansible_ssh_private_key_file=dybran-ec2.pem
+nfsserver ansible_host=<NFS-Private-IP> ansible_ssh_user=ec2-user ansible_ssh_private_key_file=onoky-ec2.pem
 
-WEB1 ansible_host=<WEB1-Private-IP> ansible_ssh_user=ec2-user ansible_ssh_private_key_file=dybran-ec2.pem
+WEB1 ansible_host=<WEB1-Private-IP> ansible_ssh_user=ec2-user ansible_ssh_private_key_file=onoky-ec2.pem
 
-WEB2 ansible_host=<WEB2-Private-IP> ansible_ssh_user=ec2-user ansible_ssh_private_key_file=dybran-ec2.pem
+WEB2 ansible_host=<WEB2-Private-IP> ansible_ssh_user=ec2-user ansible_ssh_private_key_file=onoky-ec2.pem
 
-DataB ansible_host=<DB-Private-IP> ansible_ssh_user=ec2-user ansible_ssh_private_key_file=dybran-ec2.pem
+DataB ansible_host=<DB-Private-IP> ansible_ssh_user=ec2-user ansible_ssh_private_key_file=onoky-ec2.pem
 
-LoadB ansible_host=<LB-Private-IP> ansible_ssh_user=ubuntu ansible_ssh_private_key_file=dybran-ec2.pem
+LoadB ansible_host=<LB-Private-IP> ansible_ssh_user=ubuntu ansible_ssh_private_key_file=onoky-ec2.pem
 
 [NFS]
 <NFS-Private-IP> ansible_ssh_user='ec2-user'
