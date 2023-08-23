@@ -491,10 +491,11 @@ Now, it is time to execute ansible-playbook command and verify if your playbook 
 
 We cd into **ansible-config-mgt**, To test if we can access the other servers, we run the 2nd & 3rd command below
 
-```
-cd ansible-config-mgt
-ansible-playbook -i inventory/dev.yml playbooks/common.yml
 ansible all -m ping -i /var/lib/jenkins/jobs/ansible/builds/<build_number>/archive/inventory/dev.yml
+
+```
+cd /var/lib/jenkins/jobs/ANSIBLE/builds/3/archive
+ansible all -m ping -i /var/lib/jenkins/jobs/ANSIBLE/builds/3/archive/inventory/dev.yml
 ```
 
 ![11_27](https://github.com/EzeOnoky/Project-Base-Learning-11/assets/122687798/f9c06d5f-e0a6-4e85-95bc-07bcd60f43c6)
@@ -507,7 +508,7 @@ Note: if we do not want "host key checking", We can uncomment `#host_key_checkin
 
 To run our playbook, We check if the syntax is **OK** by running the command
 
-`ansible-playbook -i /var/lib/jenkins/jobs/ansible/builds/<build_number>/archive/inventory/dev.yml /var/lib/jenkins/jobs/ansible/builds/<build_number>/archive/playbooks/common.yml --syntax-check`
+`ansible-playbook -i /var/lib/jenkins/jobs/ANSIBLE/builds/3/archive/inventory/dev.yml /var/lib/jenkins/jobs/ANSIBLE/builds/3/archive/playbooks/common.yml --syntax-check`
 
 If the syntax is OK, the playbook will be displayed. i.e `playbook: <playbook-file-path>`
 
@@ -516,11 +517,11 @@ If the syntax is OK, the playbook will be displayed. i.e `playbook: <playbook-fi
 
 For a Dry Run to see what actually happens when you run the playbook
 
-`ansible-playbook -i /var/lib/jenkins/jobs/ansible/builds/<build_number>/archive/inventory/dev.yml var/lib/jenkins/jobs/ansible/builds/<build_number>/archive/playbooks/common.yml -C`
+`ansible-playbook -i /var/lib/jenkins/jobs/ANSIBLE/builds/3/archive/inventory/dev.yml /var/lib/jenkins/jobs/ANSIBLE/builds/3/archive/playbooks/common.yml -C`
 
 To run the playbook
 
-`ansible-playbook -i /var/lib/jenkins/jobs/ansible/builds/<build_number>/archive/inventory/dev.yml /var/lib/jenkins/jobs/ansible/builds/<build_number>/archive/playbooks/common.yml`
+`ansible-playbook -i /var/lib/jenkins/jobs/ANSIBLE/builds/3/archive/inventory/dev.yml /var/lib/jenkins/jobs/ANSIBLE/builds/3/archive/playbooks/common.yml`
 
 ![11_30](https://github.com/EzeOnoky/Project-Base-Learning-11/assets/122687798/de2c3a6b-21e4-487b-b380-401b98fe7fbe)
 
