@@ -156,6 +156,22 @@ git status
 
 Notice the bottom left, the prompt has changed to the new branch we just created i.e **prj-11**. If you also check the bottom left corner of your VS Code, you will see the newly created branch. When you switch to the **Main** branch, the prompt will change. To switch between branches, click the name of your current branch in the bottom left and select your new branch from the list shown. 
 
+```
+git status
+git add .
+git commit -m "change to ansible-config-mgt"
+cd ..
+git status
+git add .
+git commit -m "change to ansible-config-mgt1"
+git status
+git push origin prj-11 - push out the changes u have made while
+   on branch prj-11,then go to github repo & merge it to main branch
+git switch main - check into the main branch
+git pull - pull all the changes made in your git hub repo
+```
+
+
 
 ### 3B - ON YOUR NEW BRANCH, CREATE A PLAYBOOKS DIRECTORY & AN INVENTORY DIRECTORY
 In the new branch we will be creating some directories that we will be working with. Create a directory and name it playbooks – it will be used to store all your playbook files. Also create another directory and name it inventory – it will be used to keep your hosts organised.
